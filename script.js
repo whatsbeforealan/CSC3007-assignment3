@@ -17,11 +17,18 @@ $.ajax({
   url: 'https://chi-loong.github.io/CSC3007/assignments/population2021.csv', 
   success: function (data) { 
       csv_data = data;
+  }
+})
+
+// api render population csv
+$.ajax({ 
+  type: 'GET', 
+  url: 'https://raw.githubusercontent.com/whatsbeforealan/CSC3007-assignment3/main/population2021.csv', 
+  success: function (data) { 
       csv = render_csv(csv_data) 
       plot_choropleth(json_data, csv);
   }
 })
-
 
 function population_legend({
     color,
@@ -81,7 +88,7 @@ function population_legend({
     return svg.node();
 }
 
-function render_csv(csv_data){
+function render_csv(csv_data, populate_data){
     dataset = []
     let array =  csv_data.toString().replace("/\n/g", ",").replace("-", '0');
     var chunks = array.split("\n")
@@ -95,14 +102,17 @@ function render_csv(csv_data){
         } else {
           temp["count"] = '0';
         }
-        Promise.all([d3.csv("C:/Users/whats/Desktop/CSC3007-assignment3/data.csv")]).then(data => {
-          data[0].find((o, i) => {
+        populate_data = populate_data.toString().replace("/\n/g", ",");
+        populate_data = populate_data.split("\n");
+
+        
+        populate_data.find((o, i) => {
             if (String(o.Subzone).toUpperCase() == String(chunk.split(",")[0]).toUpperCase()) {
-              temp["males"] = Object(data[0][i+1]).Count
-              temp["females"]= Object(data[0][i+2]).Count
+              temp["males"] = Object(data[0][i + 1]).Count
+              temp["females"]= Object(data[0][i + 2]).Count
             }
           })
-        })
+
         dataset.push(temp)
       }
     })
