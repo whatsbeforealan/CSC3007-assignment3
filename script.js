@@ -102,8 +102,8 @@ function render_csv(csv_data, populate_data){
         } else {
           temp["count"] = '0';
         }
-        populate_data = populate_data.toString().replace("/\n/g", ",");
-        populate_data = populate_data.split("\n");
+        populate_data =  populate_data.toString().replace("/\n/g", ",");
+        populate_data = populate_data.split("\n")
 
         
         populate_data.find((o, i) => {
