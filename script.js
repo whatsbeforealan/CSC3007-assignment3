@@ -25,7 +25,7 @@ $.ajax({
   type: 'GET', 
   url: 'https://raw.githubusercontent.com/whatsbeforealan/CSC3007-assignment3/main/population2021.csv', 
   success: function (data) { 
-      csv = render_csv(csv_data) 
+      csv = render_csv(csv_data, data) 
       plot_choropleth(json_data, csv);
   }
 })
