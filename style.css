@@ -1,0 +1,47 @@
+div.tooltip {   
+    position: absolute;                
+    width: 80px;                    
+    height: 50px;                   
+    padding: 2px;               
+    font: 12px sans-serif;      
+    background: white; 
+    border: 0px;        
+    border-radius: 4px;         
+    pointer-events: none;           
+}
+
+body {
+    background-color: #adacac;
+}
+
+#viz{
+    margin: auto;
+    display: block;
+}
+
+text{
+    font-size: 9px;
+}
+
+#gender_button{
+    display: block;
+    width: 100%;
+    text-align: right;
+    margin-top: 10px;
+    padding-right: 20px;
+}
+
+#legend{
+    width: 50%;
+    display: inline-block;
+}
+
+span{
+    margin-left: 200px;
+    width: 200px;
+    padding: 10px;
+    display: inline-block; 
+    background: white;
+    text-align: center;
+    font-weight: bold;
+}
